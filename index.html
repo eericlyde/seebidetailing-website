@@ -4,24 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seebi Detailing | Premium Autodetailing Tallinnas</title>
 
-<meta name="description" content="Professionaalne autodetailing Tallinnas. Sisepuhastus, poleerimine, keraamiline kaitse ja sõiduki hooldus.">
+<title>Seebi Detailing | Premium Auto Detailing Tallinnas</title>
+
+<meta name="description" content="Professionaalne auto detailing Tallinnas. Sisepuhastus, poleerimine, kaitsetöötlused ja premium autohooldus.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
 font-family:'Inter',sans-serif;
-background:#0b0b0b;
+background:#050505;
 color:#fff;
 line-height:1.6;
 }
@@ -33,74 +36,78 @@ margin:auto;
 
 header{
 position:fixed;
-width:100%;
 top:0;
-background:rgba(0,0,0,.85);
-backdrop-filter:blur(10px);
-z-index:1000;
+width:100%;
+background:rgba(5,5,5,.85);
+backdrop-filter:blur(15px);
+z-index:999;
+border-bottom:1px solid #1a1a1a;
 }
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 0;
+padding:20px 0;
 }
 
 .logo{
-font-size:1.5rem;
+font-size:1.4rem;
 font-weight:800;
-letter-spacing:1px;
-}
-
-.logo span{
-color:#d4af37;
+letter-spacing:2px;
 }
 
 nav ul{
 display:flex;
-gap:25px;
+gap:30px;
 list-style:none;
 }
 
 nav a{
-color:white;
+color:#fff;
 text-decoration:none;
 font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+opacity:.7;
 }
 
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
+justify-content:center;
 text-align:center;
 background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url("https://drive.google.com/u/0/drive-viewer/AKGpihbINxvtjMu43v4dx5pP3jLt7YvVj6DnJIOV5Oj980pXkxRDNFy9AExqOIzsepbeXq5DBUm8eDOIZJnxre1_nuwK9KmpQXA1Blk=s1600-rw-v1?auditContext=forDisplay");
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url("images/hero.jpeg");
 background-size:cover;
 background-position:center;
 }
 
 .hero h1{
-font-size:clamp(2.5rem,5vw,5rem);
+font-size:clamp(3rem,7vw,6rem);
 font-weight:800;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:1.2rem;
 max-width:700px;
 margin:auto;
-margin-bottom:30px;
+font-size:1.2rem;
+color:#d0d0d0;
+margin-bottom:35px;
 }
 
 .btn{
 display:inline-block;
-padding:14px 30px;
-background:#d4af37;
-color:#000;
-font-weight:700;
+padding:14px 32px;
+background:white;
+color:black;
 text-decoration:none;
+font-weight:700;
 border-radius:999px;
 transition:.3s;
 }
@@ -119,6 +126,26 @@ font-size:2.5rem;
 margin-bottom:50px;
 }
 
+.stats{
+background:#0b0b0b;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+text-align:center;
+gap:20px;
+}
+
+.stats-grid h2{
+font-size:3rem;
+font-weight:800;
+}
+
+.stats-grid p{
+color:#b8b8b8;
+}
+
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -126,27 +153,63 @@ gap:25px;
 }
 
 .card{
-background:#151515;
+background:#111;
 padding:30px;
-border-radius:16px;
+border-radius:18px;
+border:1px solid #1f1f1f;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card h3{
 margin-bottom:10px;
-color:#d4af37;
+}
+
+.card p{
+color:#bdbdbd;
 }
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:20px;
 }
 
 .gallery img{
 width:100%;
-height:250px;
+height:280px;
 object-fit:cover;
-border-radius:16px;
+border-radius:18px;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.02);
+}
+
+.reviews{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.review{
+background:#111;
+padding:30px;
+border-radius:18px;
+border:1px solid #1f1f1f;
+}
+
+.review p{
+color:#c8c8c8;
+margin-top:15px;
+}
+
+.stars{
+font-size:1.2rem;
 }
 
 .contact{
@@ -154,26 +217,46 @@ text-align:center;
 }
 
 .contact p{
-margin:10px 0;
 font-size:1.1rem;
+margin:12px 0;
 }
 
 footer{
-background:#111;
-padding:30px;
+padding:40px;
 text-align:center;
-color:#aaa;
+color:#999;
+border-top:1px solid #1a1a1a;
+}
+
+.floating-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:white;
+color:black;
+padding:14px 22px;
+border-radius:999px;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 @media(max-width:768px){
+
 nav ul{
 display:none;
 }
 
+.stats-grid{
+grid-template-columns:1fr;
+}
+
 .hero h1{
-font-size:2.8rem;
+font-size:3rem;
 }
+
 }
+
 </style>
 </head>
 
@@ -181,106 +264,192 @@ font-size:2.8rem;
 
 <header>
 <div class="container">
+
 <nav>
-<div class="logo">SEEBI <span>DETAILING</span></div>
+
+<div class="logo">
+SEEBI DETAILING
+</div>
 
 <ul>
 <li><a href="#services">Teenused</a></li>
-<li><a href="#gallery">Galerii</a></li>
+<li><a href="#gallery">Transformatsioonid</a></li>
+<li><a href="#reviews">Tagasiside</a></li>
 <li><a href="#contact">Kontakt</a></li>
 </ul>
+
 </nav>
+
 </div>
 </header>
 
 <section class="hero">
+
 <div class="container">
-<h1>Premium Autodetailing Tallinnas</h1>
+
+<h1>Premium Auto Detailing Tallinnas</h1>
 
 <p>
-Põhjalik sisepuhastus, poleerimine ja kaitsetöötlused,
-et sinu auto näeks välja parem kui kunagi varem.
+Tähelepanu detailidele. Professionaalne sisepuhastus,
+poleerimine ja kaitsetöötlused autoomanikele,
+kes hindavad kvaliteeti.
 </p>
 
-<a href="#contact" class="btn">Broneeri aeg</a>
+<a href="#contact" class="btn">
+Broneeri aeg
+</a>
+
 </div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div>
+<h2>100+</h2>
+<p>Rahulolevat klienti</p>
+</div>
+
+<div>
+<h2>300+</h2>
+<p>Töödeldud sõidukit</p>
+</div>
+
+<div>
+<h2>5★</h2>
+<p>Kvaliteedile pühendunud</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="services">
+
 <div class="container">
-<h2 class="section-title">Teenused</h2>
+
+<h2 class="section-title">
+Teenused
+</h2>
 
 <div class="services">
 
 <div class="card">
 <h3>Sisepuhastus</h3>
-<p>
-Salongi süvapuhastus, plekkide eemaldus,
-tolmuimejaga puhastus ning detailne viimistlus.
-</p>
+<p>Salongi süvapuhastus ja detailne viimistlus.</p>
 </div>
 
 <div class="card">
 <h3>Välipesu</h3>
-<p>
-Ohutu käsipesu, velgede puhastus,
-rehvide viimistlus ja kaitse.
-</p>
+<p>Ohutu käsipesu ja kvaliteetne viimistlus.</p>
 </div>
 
 <div class="card">
 <h3>Poleerimine</h3>
-<p>
-Värvipinna taastamine ning
-mikrokriimude eemaldamine.
-</p>
+<p>Värvipinna taastamine ja läike maksimeerimine.</p>
 </div>
 
 <div class="card">
-<h3>Keraamiline kaitse</h3>
-<p>
-Pikaajaline kaitse värvipinnale
-ning lihtsam hooldus.
-</p>
+<h3>Kaitsetöötlused</h3>
+<p>Pikaajaline kaitse ning lihtsam hooldus.</p>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <section id="gallery">
+
 <div class="container">
-<h2 class="section-title">Meie Tööd</h2>
+
+<h2 class="section-title">
+Transformatsioonid
+</h2>
 
 <div class="gallery">
 
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format">
-<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format">
-<img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=1200&auto=format">
+<img src="images/gallery1.jpg">
+<img src="images/gallery2.jpg">
+<img src="images/gallery3.jpg">
+<img src="images/gallery4.jpg">
+<img src="images/gallery5.jpg">
+<img src="images/gallery6.jpg">
 
 </div>
+
 </div>
+
+</section>
+
+<section id="reviews">
+
+<div class="container">
+
+<h2 class="section-title">
+Tagasiside
+</h2>
+
+<div class="reviews">
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Põhjalik töö ja suurepärane tulemus. Auto nägi välja parem kui ostupäeval.</p>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Professionaalne suhtlus ja kvaliteetne töö. Kindlasti tulen tagasi.</p>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Tulemus ületas ootusi. Soovitan kõigile autohuvilistele.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="contact">
-<div class="container contact">
-<h2 class="section-title">Kontakt</h2>
 
-<p>📞 5584424</p>
+<div class="container contact">
+
+<h2 class="section-title">
+Kontakt
+</h2>
+
+<p>📞 +372 5584424</p>
 <p>📧 seebidetailing@gmail.com</p>
-<p>📍 Seebi tänav 11</p>
+<p>📸 @seebidetailing</p>
+<p>📍 Seebi tänav 11, Tallinn</p>
 
 <br>
 
-<a href="tel:YOUR_PHONE" class="btn">
+<a href="tel:+3725584424" class="btn">
 Helista kohe
 </a>
+
 </div>
+
 </section>
 
 <footer>
 © 2026 Seebi Detailing. Kõik õigused kaitstud.
 </footer>
+
+<a href="tel:+3725584424" class="floating-btn">
+Broneeri aeg
+</a>
 
 </body>
 </html>
