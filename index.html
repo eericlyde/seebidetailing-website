@@ -191,7 +191,31 @@ object-fit:cover;
 border-radius:18px;
 transition:.3s;
 }
+.brands{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+gap:30px;
+margin-top:30px;
+}
 
+.brands img{
+height:22px;
+max-width:100px;
+width:auto;
+object-fit:contain;
+filter:grayscale(100%);
+opacity:.7;
+transition:.3s;
+}
+
+.brands img:hover{
+filter:none;
+opacity:1;
+transform:scale(1.05);
+}
+    
 .gallery img:hover{
 transform:scale(1.02);
 }
