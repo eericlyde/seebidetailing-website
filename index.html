@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Seebi Detailing | Premium Auto Detailing Tallinnas</title>
-
 <link rel="icon" type="image/png" href="images/IMG_0199.PNG">
-
 <meta name="description" content="Professionaalne auto detailing Tallinnas. Sisepuhastus, kaitsetöötlused ja premium autohooldus.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,15 +191,13 @@ transform:scale(1.05);
 filter:brightness(0) invert(1) grayscale(100%);
 }
 
-.gallery,
-.before-after-grid{
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:20px;
 }
 
-.gallery img,
-.comparison-card img{
+.gallery img{
 width:100%;
 height:280px;
 object-fit:cover;
@@ -209,23 +205,107 @@ border-radius:18px;
 transition:.3s;
 }
 
-.gallery img:hover,
-.comparison-card:hover{
+.gallery img:hover{
 transform:scale(1.02);
 }
 
-.comparison-card{
-background:#111;
-border:1px solid #222;
-border-radius:18px;
-overflow:hidden;
-transition:.3s;
+.slider-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
 }
 
-.comparison-card img{
-height:320px;
-border-radius:0;
+.before-after-slider{
+position:relative;
+height:380px;
+overflow:hidden;
+border-radius:18px;
+border:1px solid #222;
+background:#111;
+}
+
+.before-after-slider img{
+width:100%;
+height:100%;
+object-fit:cover;
 display:block;
+}
+
+.before-image{
+position:absolute;
+top:0;
+left:0;
+width:50%;
+height:100%;
+overflow:hidden;
+}
+
+.before-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.slider-control{
+position:absolute;
+left:0;
+bottom:20px;
+width:100%;
+z-index:5;
+appearance:none;
+background:transparent;
+cursor:pointer;
+}
+
+.slider-control::-webkit-slider-thumb{
+appearance:none;
+height:34px;
+width:34px;
+border-radius:50%;
+background:white;
+border:3px solid #050505;
+}
+
+.slider-control::-moz-range-thumb{
+height:34px;
+width:34px;
+border-radius:50%;
+background:white;
+border:3px solid #050505;
+}
+
+.slider-line{
+position:absolute;
+top:0;
+left:50%;
+width:2px;
+height:100%;
+background:white;
+z-index:4;
+transform:translateX(-50%);
+pointer-events:none;
+}
+
+.slider-label{
+position:absolute;
+top:18px;
+z-index:6;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(8px);
+border:1px solid #333;
+padding:7px 12px;
+border-radius:999px;
+font-size:.8rem;
+font-weight:700;
+letter-spacing:.5px;
+}
+
+.label-before{
+left:18px;
+}
+
+.label-after{
+right:18px;
 }
 
 .reviews{
@@ -296,6 +376,10 @@ font-size:3rem;
 
 .brands img{
 height:55px;
+}
+
+.before-after-slider{
+height:320px;
 }
 
 .floating-btn{
@@ -413,21 +497,42 @@ kes hindavad kvaliteeti.
 <h2 class="section-title">Enne & Pärast</h2>
 
 <p class="section-subtitle">
-Tõelised tulemused päris klientide autodel.
+Liiguta joont ja vaata erinevust.
 </p>
 
-<div class="before-after-grid">
+<div class="slider-grid">
 
-<div class="comparison-card">
-<img src="images/3DF42AA7-F8BF-433F-B9D0-0C707CBFCB0F.jpeg" alt="Enne ja pärast puhastus">
+<div class="before-after-slider">
+<span class="slider-label label-before">ENNE</span>
+<span class="slider-label label-after">PÄRAST</span>
+<img src="images/after1.jpg" alt="Pärast detailingu tulemus">
+<div class="before-image">
+<img src="images/before1.jpg" alt="Enne detailingu töötlust">
+</div>
+<div class="slider-line"></div>
+<input type="range" min="0" max="100" value="50" class="slider-control" aria-label="Enne ja pärast slider">
 </div>
 
-<div class="comparison-card">
-<img src="images/F27F06A0-3074-4E72-B1B6-14B08C9CFE4C.jpeg" alt="Enne ja pärast puhastus">
+<div class="before-after-slider">
+<span class="slider-label label-before">ENNE</span>
+<span class="slider-label label-after">PÄRAST</span>
+<img src="images/after2.jpg" alt="Pärast detailingu tulemus">
+<div class="before-image">
+<img src="images/before2.jpg" alt="Enne detailingu töötlust">
+</div>
+<div class="slider-line"></div>
+<input type="range" min="0" max="100" value="50" class="slider-control" aria-label="Enne ja pärast slider">
 </div>
 
-<div class="comparison-card">
-<img src="images/25BEA3F7-6C17-4E65-BB06-E047B18D7B8C.jpeg" alt="Enne ja pärast puhastus">
+<div class="before-after-slider">
+<span class="slider-label label-before">ENNE</span>
+<span class="slider-label label-after">PÄRAST</span>
+<img src="images/after3.jpg" alt="Pärast detailingu tulemus">
+<div class="before-image">
+<img src="images/before3.jpg" alt="Enne detailingu töötlust">
+</div>
+<div class="slider-line"></div>
+<input type="range" min="0" max="100" value="50" class="slider-control" aria-label="Enne ja pärast slider">
 </div>
 
 </div>
@@ -486,6 +591,19 @@ Tõelised tulemused päris klientide autodel.
 <a href="tel:+3725584424" class="floating-btn">
 Broneeri aeg
 </a>
+
+<script>
+document.querySelectorAll('.before-after-slider').forEach(slider => {
+const control = slider.querySelector('.slider-control');
+const before = slider.querySelector('.before-image');
+const line = slider.querySelector('.slider-line');
+
+control.addEventListener('input', () => {
+before.style.width = control.value + '%';
+line.style.left = control.value + '%';
+});
+});
+</script>
 
 </body>
 </html>
