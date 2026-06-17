@@ -225,10 +225,18 @@ background:#111;
 }
 
 .before-after-slider img{
+position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
 object-fit:cover;
+object-position:center;
 display:block;
+}
+
+.after-img{
+z-index:1;
 }
 
 .before-image{
@@ -237,41 +245,19 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+z-index:2;
 overflow:hidden;
-clip-path: inset(0 50% 0 0);
+clip-path:inset(0 50% 0 0);
 }
+
 .before-image img{
+position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-}
-
-.slider-control{
-position:absolute;
-left:0;
-bottom:20px;
-width:100%;
-z-index:5;
-appearance:none;
-background:transparent;
-cursor:pointer;
-}
-
-.slider-control::-webkit-slider-thumb{
-appearance:none;
-height:34px;
-width:34px;
-border-radius:50%;
-background:white;
-border:3px solid #050505;
-}
-
-.slider-control::-moz-range-thumb{
-height:34px;
-width:34px;
-border-radius:50%;
-background:white;
-border:3px solid #050505;
+object-position:center;
 }
 
 .slider-line{
@@ -286,10 +272,34 @@ transform:translateX(-50%);
 pointer-events:none;
 }
 
+.slider-control{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+opacity:0;
+z-index:5;
+cursor:ew-resize;
+}
+
+.slider-handle{
+position:absolute;
+left:50%;
+top:50%;
+width:34px;
+height:34px;
+background:white;
+border:3px solid #050505;
+border-radius:50%;
+z-index:6;
+transform:translate(-50%,-50%);
+pointer-events:none;
+}
+
 .slider-label{
 position:absolute;
 top:18px;
-z-index:6;
+z-index:7;
 background:rgba(0,0,0,.65);
 backdrop-filter:blur(8px);
 border:1px solid #333;
@@ -297,16 +307,10 @@ padding:7px 12px;
 border-radius:999px;
 font-size:.8rem;
 font-weight:700;
-letter-spacing:.5px;
 }
 
-.label-before{
-left:18px;
-}
-
-.label-after{
-right:18px;
-}
+.label-before{ left:18px; }
+.label-after{ right:18px; }
 
 .reviews{
 display:grid;
@@ -505,12 +509,17 @@ Liiguta joont ja vaata erinevust.
 <div class="before-after-slider">
 <span class="slider-label label-before">ENNE</span>
 <span class="slider-label label-after">PÄRAST</span>
-<img src="images/after1.jpg" alt="Pärast detailingu tulemus">
+
+<img src="images/after1.jpg" class="after-img" alt="Pärast">
+
 <div class="before-image">
-<img src="images/before1.jpg" alt="Enne detailingu töötlust">
+<img src="images/before1.jpg" alt="Enne">
 </div>
+
 <div class="slider-line"></div>
-<input type="range" min="0" max="100" value="50" class="slider-control" aria-label="Enne ja pärast slider">
+<div class="slider-handle"></div>
+
+<input type="range" min="0" max="100" value="50" class="slider-control">
 </div>
 
 <div class="before-after-slider">
@@ -605,7 +614,22 @@ line.style.left = control.value + '%';
 });
 });
 </script>
+<script>
+document.querySelectorAll('.before-after-slider').forEach(slider => {
+const control = slider.querySelector('.slider-control');
+const before = slider.querySelector('.before-image');
+const line = slider.querySelector('.slider-line');
+const handle = slider.querySelector('.slider-handle');
 
+control.addEventListener('input', () => {
+const value = control.value;
+before.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+line.style.left = value + '%';
+handle.style.left = value + '%';
+});
+});
+</script>
+  
 </body>
 </html>
 ```
