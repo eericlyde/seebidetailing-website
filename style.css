@@ -389,6 +389,113 @@ margin-right:9px;
 font-weight:900;
 }
 
+/* PRICES */
+.price-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:20px;
+max-width:1150px;
+margin:0 auto;
+}
+
+.price-card{
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03)),
+#0d0d0d;
+border:1px solid var(--line);
+border-radius:30px;
+padding:32px;
+transition:.3s;
+}
+
+.price-card::before{
+content:"";
+position:absolute;
+top:-90px;
+right:-90px;
+width:180px;
+height:180px;
+background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);
+opacity:0;
+transition:.3s;
+pointer-events:none;
+}
+
+.price-card:hover{
+transform:translateY(-6px);
+border-color:rgba(255,255,255,.22);
+box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.price-card:hover::before{
+opacity:1;
+}
+
+.price-card.featured{
+background:
+linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04)),
+#111;
+}
+
+.price-card.wide{
+grid-column:span 2;
+}
+
+.price-card small{
+display:inline-block;
+padding:6px 11px;
+margin-bottom:16px;
+border-radius:999px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.06);
+font-size:.8rem;
+font-weight:800;
+color:#eaeaea;
+}
+
+.price-card h3{
+font-size:1.55rem;
+line-height:1.15;
+letter-spacing:-.03em;
+margin-bottom:22px;
+}
+
+.price-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+padding:15px 0;
+border-top:1px solid rgba(255,255,255,.08);
+color:#cfcfcf;
+}
+
+.price-row span{
+font-size:.96rem;
+}
+
+.price-row strong{
+color:#fff;
+font-size:1.05rem;
+font-weight:800;
+white-space:nowrap;
+}
+
+.price-btn{
+width:100%;
+margin-top:25px;
+}
+
+.price-note{
+max-width:800px;
+margin:28px auto 0;
+text-align:center;
+color:var(--muted);
+font-size:.9rem;
+}
+
 /* BRANDS */
 .brands{
 display:flex;
@@ -869,6 +976,35 @@ padding:78px 0;
 .why-grid,
 .services{
 grid-template-columns:1fr;
+}
+
+.price-grid{
+grid-template-columns:1fr;
+}
+
+.price-card.wide{
+grid-column:auto;
+}
+
+.price-card{
+padding:25px;
+border-radius:26px;
+}
+
+.price-card h3{
+font-size:1.35rem;
+}
+
+.price-row{
+gap:15px;
+}
+
+.price-row span{
+font-size:.92rem;
+}
+
+.price-row strong{
+font-size:.96rem;
 }
 
 .brands img{
