@@ -41,6 +41,8 @@
 <li><a href="#why">Miks meie?</a></li>
 <li><a href="#services">Teenused</a></li>
 <li><a href="#prices">Hinnakiri</a></li>
+<li><a href="#booking">Broneeri</a></li>
+<li><a href="#gallery">Galerii</a></li>
 <li><a href="#beforeafter">Enne & Pärast</a></li>
 <li><a href="#reviews">Tagasiside</a></li>
 <li><a href="#contact">Kontakt</a></li>
@@ -62,7 +64,7 @@ Sobib autoomanikule, kes tahab rohkem kui lihtsalt tavalist pesu.
 </p>
 
 <div class="hero-actions">
-<a href="#contact" class="btn">Broneeri aeg</a>
+<a href="#booking" class="btn">Broneeri aeg</a>
 <a href="#gallery" class="btn dark">Vaata töid</a>
 </div>
 
@@ -198,7 +200,7 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 <strong>70 €</strong>
 </div>
 
-<a href="#contact" class="btn price-btn">Broneeri aeg</a>
+<a href="#booking" class="btn price-btn">Broneeri aeg</a>
 </div>
 
 <div class="price-card">
@@ -215,7 +217,7 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 <strong>70 €</strong>
 </div>
 
-<a href="#contact" class="btn price-btn">Broneeri aeg</a>
+<a href="#booking" class="btn price-btn">Broneeri aeg</a>
 </div>
 
 <div class="price-card featured">
@@ -232,7 +234,7 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 <strong>200 €</strong>
 </div>
 
-<a href="#contact" class="btn price-btn">Broneeri aeg</a>
+<a href="#booking" class="btn price-btn">Broneeri aeg</a>
 </div>
 
 <div class="price-card">
@@ -249,7 +251,7 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 <strong>80 €</strong>
 </div>
 
-<a href="#contact" class="btn price-btn">Broneeri aeg</a>
+<a href="#booking" class="btn price-btn">Broneeri aeg</a>
 </div>
 
 <div class="price-card wide">
@@ -330,7 +332,47 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 </div>
 </section>
 
+<section id="gallery" class="reveal">
+<div class="container">
+<div class="section-head">
+<h2 class="section-title">Galerii</h2>
+</div>
 
+<div class="masonry">
+<div class="masonry-item tall">
+<img src="images/IMG_0549.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item short">
+<img src="images/IMG_0550.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item medium">
+<img src="images/IMG_0551.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item medium">
+<img src="images/IMG_0552.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item tall">
+<img src="images/IMG_0554.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item short">
+<img src="images/IMG_0556.JPG" alt="Seebi Detailing töö" loading="lazy">
+</div>
+
+<div class="masonry-item tall">
+<img src="images/IMG_0741.webp" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item medium">
+<img src="images/IMG_0785.webp" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item short">
+<img src="images/IMG_0822.webp" alt="Seebi Detailing töö" loading="lazy">
+</div>
+<div class="masonry-item medium">
+<img src="images/IMG_0847.webp" alt="Seebi Detailing töö" loading="lazy">
+</div>
+</div>
+</div>
+</section>
 
 <section id="beforeafter" class="reveal">
 <div class="container">
@@ -419,6 +461,177 @@ Google Reviews
 </div>
 </section>
 
+
+<section id="booking" class="reveal">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow booking-eyebrow">Online broneerimine</div>
+<h2 class="section-title">Broneeri aeg</h2>
+<p class="section-subtitle">
+Vali teenused, auto tüüp ja sobiv vaba aeg. Hind ning eeldatav töö kestus arvutatakse automaatselt.
+</p>
+</div>
+
+<div class="booking-shell">
+<form id="booking-form" novalidate>
+
+<div class="booking-step">
+<div class="booking-step-head">
+<span class="booking-step-number">1</span>
+<div>
+<h3>Vali auto tüüp</h3>
+<p>Hind muutub vastavalt auto tüübile.</p>
+</div>
+</div>
+
+<div class="vehicle-options">
+<label class="choice-card">
+<input type="radio" name="vehicle-type" value="soiduauto" checked>
+<span>
+<strong>Sõiduauto</strong>
+<small>Sedaan, universaal, luukpära jne</small>
+</span>
+</label>
+
+<label class="choice-card">
+<input type="radio" name="vehicle-type" value="maastur">
+<span>
+<strong>Maastur</strong>
+<small>SUV ja suuremad sõidukid</small>
+</span>
+</label>
+</div>
+</div>
+
+<div class="booking-step">
+<div class="booking-step-head">
+<span class="booking-step-number">2</span>
+<div>
+<h3>Vali teenused</h3>
+<p>Võid valida mitu teenust korraga.</p>
+</div>
+</div>
+
+<div id="booking-main-services" class="booking-service-grid">
+<div class="booking-loading">Teenuste laadimine…</div>
+</div>
+
+<div class="booking-addons-head">
+<h4>Lisateenused</h4>
+<p>Lisateenuse aeg ja hind lisatakse automaatselt põhitööle.</p>
+</div>
+
+<div id="booking-addon-services" class="booking-service-grid addon-grid"></div>
+
+<div class="ceramic-contact-card">
+<div>
+<small>Keraamiline kaitse</small>
+<strong>Keraamiline kaitse vajab enne töö mahu täpsustamist.</strong>
+<span>Seda teenust ei saa veebis otse broneerida.</span>
+</div>
+<a href="#contact" class="btn dark">Võta ühendust</a>
+</div>
+</div>
+
+<div class="booking-summary" aria-live="polite">
+<div>
+<span>Valitud teenuseid</span>
+<strong id="booking-service-count">0</strong>
+</div>
+<div>
+<span>Eeldatav kestus</span>
+<strong id="booking-duration">—</strong>
+</div>
+<div>
+<span>Kokku</span>
+<strong id="booking-total">—</strong>
+</div>
+</div>
+
+<div class="booking-step">
+<div class="booking-step-head">
+<span class="booking-step-number">3</span>
+<div>
+<h3>Vali kuupäev ja kellaaeg</h3>
+<p>Broneerida saab E–P kell 09:00–20:00, vähemalt 6 tundi ette.</p>
+</div>
+</div>
+
+<div class="booking-date-row">
+<label class="booking-field">
+<span>Kuupäev</span>
+<input type="date" id="booking-date" required>
+</label>
+</div>
+
+<div id="booking-times" class="booking-times">
+<p class="booking-hint">Vali esmalt vähemalt üks teenus ja kuupäev.</p>
+</div>
+<input type="hidden" id="booking-time" required>
+</div>
+
+<div class="booking-step">
+<div class="booking-step-head">
+<span class="booking-step-number">4</span>
+<div>
+<h3>Sinu andmed</h3>
+<p>Neid kasutatakse ainult broneeringuga ühenduse võtmiseks.</p>
+</div>
+</div>
+
+<div class="booking-fields">
+<label class="booking-field">
+<span>Nimi *</span>
+<input type="text" id="booking-name" autocomplete="name" maxlength="100" required>
+</label>
+
+<label class="booking-field">
+<span>Telefon *</span>
+<input type="tel" id="booking-phone" autocomplete="tel" maxlength="30" required>
+</label>
+
+<label class="booking-field">
+<span>E-post</span>
+<input type="email" id="booking-email" autocomplete="email" maxlength="254">
+</label>
+
+<label class="booking-field">
+<span>Auto mark ja mudel</span>
+<input type="text" id="booking-vehicle" placeholder="Näiteks Audi A4" maxlength="120">
+</label>
+
+<label class="booking-field">
+<span>Registrinumber</span>
+<input type="text" id="booking-registration" maxlength="20">
+</label>
+
+<label class="booking-field booking-field-wide">
+<span>Lisainfo</span>
+<textarea id="booking-notes" rows="4" maxlength="1000" placeholder="Soovi korral lisa info auto seisukorra või erisoovide kohta."></textarea>
+</label>
+</div>
+
+<div class="booking-honeypot" aria-hidden="true">
+<label>Veebileht<input type="text" id="booking-website" tabindex="-1" autocomplete="off"></label>
+</div>
+
+<div class="booking-submit-row">
+<div>
+<strong id="booking-submit-summary">Vali teenus ja aeg.</strong>
+<small>Broneering kinnitatakse kohe pärast nupule vajutamist.</small>
+</div>
+<button type="submit" class="btn booking-submit" id="booking-submit" disabled>
+Kinnita broneering
+</button>
+</div>
+
+<div id="booking-status" class="booking-status" aria-live="polite"></div>
+
+</form>
+</div>
+</div>
+</section>
+
 <section class="cta reveal">
 <div class="container">
 <div class="cta-box">
@@ -428,8 +641,8 @@ Google Reviews
 Kirjuta või helista ning lepime kokku, millist hooldust sinu auto vajab.
 Kui auto on väga määrdunud, saab töömahu enne täpsustada.
 </p>
-<a href="tel:+3725584424" class="btn">Helista kohe</a>
-<a href="#contact" class="btn dark">Kontaktid</a>
+<a href="#booking" class="btn">Broneeri online</a>
+<a href="tel:+3725584424" class="btn dark">Helista</a>
 </div>
 </div>
 </div>
@@ -464,7 +677,7 @@ Ava asukoht Google Mapsis
 © 2026 Seebi Detailing OÜ (17575745). Kõik õigused kaitstud.
 </footer>
 
-<a href="tel:+3725584424" class="floating-btn">Broneeri aeg</a>
+<a href="#booking" class="floating-btn">Broneeri aeg</a>
 
 <script src="script.js"></script>
 
