@@ -344,15 +344,9 @@ if (bookingForm) {
 
         const name = document.querySelector('#booking-name').value.trim();
         const phone = document.querySelector('#booking-phone').value.trim();
-        const email = document.querySelector('#booking-email').value.trim();
 
         if (name.length < 2 || phone.length < 5) {
             setStatus('Sisesta palun nimi ja telefoninumber.', 'error');
-            return;
-        }
-
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            setStatus('Sisesta korrektne e-posti aadress, et saaksime saata broneeringu kinnituse.', 'error');
             return;
         }
 
@@ -371,7 +365,7 @@ if (bookingForm) {
                 customer: {
                     name,
                     phone,
-                    email,
+                    email: document.querySelector('#booking-email').value.trim(),
                     vehicleMakeModel: document.querySelector('#booking-vehicle').value.trim(),
                     registrationNumber: document.querySelector('#booking-registration').value.trim(),
                     notes: document.querySelector('#booking-notes').value.trim()
