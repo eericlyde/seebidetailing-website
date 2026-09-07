@@ -1226,6 +1226,21 @@ font-weight:800;
 line-height:1.25;
 }
 
+
+.booking-service-description{
+    display:block;
+    color:var(--muted);
+    font-size:.84rem;
+    line-height:1.45;
+    margin-top:-2px;
+    margin-bottom:4px;
+}
+
+.choice-card input:checked + span .booking-service-description,
+.booking-service input:checked + .booking-service-body .booking-service-description{
+    color:#c9c9c9;
+}
+
 .booking-service-price{
 font-weight:900;
 white-space:nowrap;

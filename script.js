@@ -73,6 +73,23 @@ if (bookingForm) {
     let selectedTime = '';
     let availabilityRequestId = 0;
 
+    const SERVICE_DESCRIPTIONS = {
+        'pohjalik-valipesu': 'Ohutu käsipesu koos põhjaliku eeltöö, velgede ja detailide puhastusega.',
+        'sisepuhastus': 'Salongi põhjalik puhastus: tolmuimeja, pinnad, detailid ja viimistlus.',
+        'keemiline-puhastus': 'Sügavpuhastus istmetele, vaipadele ja tekstiilidele tugevama mustuse eemaldamiseks.',
+        'keraamika-hoolduspesu': 'Keraamilise kaitse õrn hoolduspesu, mis aitab säilitada libeduse ja vee tõrjumise.',
+        'esiklaasi-keraamika': 'Hüdrofoobne kaitse esiklaasile, mis parandab vee äravoolu ja lihtsustab puhastust.',
+        'nahahooldus': 'Nahkpindade puhastus ja hooldus, et säilitada pehmus ja korrektne välimus.',
+        'mootoriruumi-pesu': 'Mootoriruumi kontrollitud puhastus ja viimistlus ohutute töövõtetega.',
+        'keraamiline-kaitse': 'Pikaajaline värvikaitse ja läige; töömaht täpsustatakse enne broneerimist.',
+        'velgede-keraamika': 'Keraamiline kaitse velgedele, mis aitab piduritolmu ja mustust kergemini eemaldada.',
+        'plastikdetailide-kaitse-seest': 'Salongi plastikpindade kaitse, mis aitab säilitada välimust ja lihtsustab hooldust.',
+        'plastikdetailide-kaitse-valjast': 'Välisplastikute kaitse ja toonuse taastamine ilmastiku ning UV-mõju vastu.',
+        'lemmikloomakarvad': 'Lisateenus tõrksate lemmikloomakarvade põhjalikuks eemaldamiseks salongist.',
+        'osoneerimine': 'Osoonitöötlus ebameeldivate lõhnade vähendamiseks ja salongi värskendamiseks.',
+        'auto-muugi-ilupildid': 'Kvaliteetsed fotod autost müügikuulutuse või ilupiltide jaoks.'
+    };
+
     const money = value => `${Number(value).toFixed(0)} €`;
 
     const durationLabel = minutes => {
@@ -152,6 +169,9 @@ if (bookingForm) {
                 <span class="booking-service-top">
                     <span class="booking-service-name">${service.name}</span>
                     <span class="booking-check">✓</span>
+                </span>
+                <span class="booking-service-description">
+                    ${service.description || SERVICE_DESCRIPTIONS[service.slug] || ''}
                 </span>
                 <span class="booking-service-meta">
                     <span>${durationLabel(service.duration_minutes)}</span>
