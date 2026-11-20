@@ -581,17 +581,22 @@ opacity:1;
 .comparison-gallery{
 display:grid;
 grid-template-columns:repeat(2,minmax(0,1fr));
-gap:clamp(.5rem,2vw,1rem);
-max-width:32rem;
+gap:clamp(.25rem,1vw,.5rem);
+width:min(50%,16rem);
 margin:1rem auto 0;
 }
 
 .comparison-gallery .before-after-slider{
 height:auto;
 aspect-ratio:4 / 5;
+border-radius:14px;
+container-type:inline-size;
 }
 
-@media (max-width:540px){
+.comparison-gallery .slider-handle{
+transform:translate(-50%,-50%) scale(.55);
+}
+
 .comparison-gallery .slider-label{
 top:6px;
 padding:3px 5px;
@@ -599,6 +604,9 @@ font-size:.7rem;
 }
 .comparison-gallery .label-before{left:5px;}
 .comparison-gallery .label-after{right:5px;}
+
+@container (max-width:95px){
+.comparison-gallery .label-after{top:auto;bottom:6px;}
 }
 
 .before-after-slider{
