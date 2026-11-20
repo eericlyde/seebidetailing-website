@@ -330,60 +330,17 @@ Professionaalne autohooldus vastavalt sinu auto vajadustele.
 <div class="container">
 <div class="section-head">
 <h2 class="section-title">Tagasiside</h2>
+<a class="btn dark" href="https://search.google.com/local/reviews?placeid=ChIJa84F5U-VkkYR92RBFWhCHQI" target="_blank" rel="noopener">Loe arvustusi Google’is</a>
 </div>
-
-<div class="google-card">
-<div class="google-top">
-<div class="google-logo">
-<div class="g-icon">G</div>
-<div>
-Google Reviews
-<br>
-<small style="color:#aaa;font-weight:600;">Seebi Detailing</small>
-</div>
-</div>
-
-<div class="rating">
-<strong>5.0</strong>
-<div>★★★★★</div>
-<small style="color:#aaa;">Klientide tagasiside</small>
-</div>
-</div>
-
-<div class="review-grid">
-<div class="review">
-<div class="review-head">
-<div class="avatar">A</div>
-<div>
-<h3>Annika</h3>
-<small>★★★★★</small>
-</div>
-</div>
-<p>Väga korralik töö, viimati oli mu auto seest nii puhas vist uhiuuena.</p>
-</div>
-
-<div class="review">
-<div class="review-head">
-<div class="avatar">R</div>
-<div>
-<h3>Renar</h3>
-<small>★★★★★</small>
-</div>
-</div>
-<p>Korralik töö ja teenindus. Tulemus jäi väga hea.</p>
-</div>
-
-<div class="review">
-<div class="review-head">
-<div class="avatar">R</div>
-<div>
-<h3>Robin</h3>
-<small>★★★★★</small>
-</div>
-</div>
-<p>Super töö alcantara rooli hooldusega.</p>
-</div>
-</div>
+<div id="google-reviews" data-browser-key="">
+<template>
+<gmp-place-details style="display:block;width:min(100%,500px);margin:auto;color-scheme:dark">
+<gmp-place-details-place-request place="ChIJa84F5U-VkkYR92RBFWhCHQI"></gmp-place-details-place-request>
+<gmp-place-name></gmp-place-name>
+<gmp-place-rating></gmp-place-rating>
+<gmp-place-reviews></gmp-place-reviews>
+</gmp-place-details>
+</template>
 </div>
 </div>
 </section>
@@ -607,6 +564,31 @@ Ava asukoht Google Mapsis
 <a href="#booking" class="floating-btn">Broneeri aeg</a>
 
 <script src="script.js"></script>
+<script>
+(() => {
+    const host = document.getElementById('google-reviews');
+    const key = host.dataset.browserKey.trim();
+    if (!key) return;
+
+    const observer = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        observer.disconnect();
+
+        window.showGoogleReviews = () => {
+            host.append(host.querySelector('template').content.cloneNode(true));
+        };
+        const loader = document.createElement('script');
+        const params = new URLSearchParams({
+            key, libraries: 'places', loading: 'async', language: 'et',
+            callback: 'showGoogleReviews', v: 'weekly'
+        });
+        loader.src = 'https://maps.googleapis.com/maps/api/js?' + params;
+        loader.async = true;
+        document.head.append(loader);
+    });
+    observer.observe(document.getElementById('reviews'));
+})();
+</script>
 
 <script type="application/ld+json">
 {
