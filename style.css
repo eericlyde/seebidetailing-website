@@ -580,7 +580,7 @@ opacity:1;
 /* BEFORE AFTER */
 .comparison-gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
 gap:1rem;
 margin-top:1rem;
 }
@@ -588,31 +588,6 @@ margin-top:1rem;
 .comparison-gallery .before-after-slider{
 height:auto;
 aspect-ratio:9 / 16;
-}
-
-/* Registration in the common 9:16 frame keeps the lamp and grille aligned. */
-.comparison-gallery img[src="images/IMG_2696.jpeg"]{
-object-fit:fill;
-transform-origin:top left;
-transform:translate(-0.409%, -0.230%) scale(1.10469);
-}
-
-.comparison-gallery img[src="images/IMG_2697.jpeg"]{
-object-fit:fill;
-transform-origin:top left;
-transform:translate(-1.821%, -3.901%) matrix(1.052813, -0.011607, -0.017806, 1.077930, 0, 0);
-}
-
-.comparison-gallery img[src="images/IMG_2698.jpeg"]{
-object-fit:fill;
-transform-origin:top left;
-transform:translate(-0.373%, -0.210%) scale(1.00746);
-}
-
-.comparison-gallery img[src="images/IMG_2699.jpeg"]{
-object-fit:fill;
-transform-origin:top left;
-transform:translate(-7.797%, -3.352%) matrix(1.149232, -0.020912, 0.029682, 1.253952, 0, 0);
 }
 
 .before-after-slider{
