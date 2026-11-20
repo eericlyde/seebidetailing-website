@@ -581,8 +581,8 @@ opacity:1;
 .comparison-gallery{
 display:grid;
 grid-template-columns:repeat(2,minmax(0,1fr));
-gap:clamp(.25rem,1vw,.5rem);
-width:min(50%,16rem);
+gap:clamp(.5rem,2vw,.75rem);
+width:min(100%,26rem);
 margin:1rem auto 0;
 }
 
@@ -594,7 +594,7 @@ container-type:inline-size;
 }
 
 .comparison-gallery .slider-handle{
-transform:translate(-50%,-50%) scale(.55);
+transform:translate(-50%,-50%) scale(.75);
 }
 
 .comparison-gallery .slider-label{
