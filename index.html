@@ -66,6 +66,8 @@ Sobib autoomanikule, kes tahab rohkem kui lihtsalt tavalist pesu.
 <a href="https://www.instagram.com/seebidetailing/" class="btn dark" target="_blank" rel="noopener noreferrer">Vaata töid</a>
 </div>
 
+<p><strong>Tasuta auto pealevõtt ja tagastamine Tallinna piires alates 60 € tellimusest.</strong> Tuleme autole järele ja toome selle pärast hooldust tagasi. <a href="#booking">Broneeri aeg</a>.</p>
+
 <div class="stats">
 <div class="stat">
 <strong>100%</strong>
@@ -500,6 +502,15 @@ Vali teenused, auto tüüp ja sobiv vaba aeg. Hind ning eeldatav töö kestus ar
 <textarea id="booking-notes" rows="4" maxlength="1000" placeholder="Soovi korral lisa info auto seisukorra või erisoovide kohta."></textarea>
 </label>
 </div>
+
+<fieldset id="booking-transport" style="margin: 1rem 0; padding: 1rem; border: 1px solid currentColor; border-radius: 12px;">
+<legend>Auto pealevõtt ja tagastamine</legend>
+<p class="booking-hint">Tallinna piires tasuta alates 60 € tellimusest. Täpsed transpordiajad lepime eraldi kokku.</p>
+<label class="booking-field"><span>Transport</span><select id="transport-choice" disabled><option value="none">Toon auto ise kohale</option><option value="pickup">Tasuta pealevõtt</option><option value="return">Tasuta tagastamine</option><option value="both">Tasuta pealevõtt ja tagastamine</option></select></label>
+<div id="transport-pickup-wrap" hidden><label class="booking-field"><span>Pealevõtu aadress Tallinnas *</span><input id="transport-pickup" maxlength="150"></label></div>
+<div id="transport-same-wrap" hidden><label><input type="checkbox" id="transport-same" checked> Tagastamine samale aadressile</label></div>
+<div id="transport-return-wrap" hidden><label class="booking-field"><span>Tagastamise aadress Tallinnas *</span><input id="transport-return" maxlength="150"></label></div>
+</fieldset>
 
 <div class="booking-honeypot" aria-hidden="true">
 <label>Veebileht<input type="text" id="booking-website" tabindex="-1" autocomplete="off"></label>
