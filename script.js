@@ -478,6 +478,24 @@ if (bookingForm) {
        SUMMARY
     ========================= */
 
+    const transportChoice = document.querySelector('#transport-choice');
+    const transportSame = document.querySelector('#transport-same');
+    const pickupAddress = document.querySelector('#transport-pickup');
+    const returnAddress = document.querySelector('#transport-return');
+    const syncTransport = (total) => {
+        if (!transportChoice) return;
+        if (typeof total === 'number') {
+            transportChoice.disabled = !(total >= 60);
+            if (transportChoice.disabled) transportChoice.value = 'none';
+        }
+        const mode = transportChoice.value;
+        document.querySelector('#transport-pickup-wrap').hidden = !['pickup','both'].includes(mode);
+        document.querySelector('#transport-same-wrap').hidden = mode !== 'both';
+        document.querySelector('#transport-return-wrap').hidden = !(mode === 'return' || (mode === 'both' && !transportSame.checked));
+    };
+    transportChoice?.addEventListener('change', () => syncTransport());
+    transportSame?.addEventListener('change', () => syncTransport());
+
     const updateSummary = () => {
 
         const selected =
@@ -503,6 +521,8 @@ if (bookingForm) {
                 0
             );
 
+
+        syncTransport(totalPrice);
 
         countEl.textContent =
             String(selected.length);
@@ -720,6 +740,7 @@ if (bookingForm) {
             }
 
 
+            syncTransport(Number(result.totalPrice));
             durationEl.textContent =
                 result.durationLabel;
 
@@ -1103,6 +1124,27 @@ if (bookingForm) {
             }
 
 
+            const mode = transportChoice?.value || 'none';
+            const pickup = pickupAddress?.value.trim() || '';
+            const dropoff = mode === 'both' && transportSame.checked ? pickup : (returnAddress?.value.trim() || '');
+            const needsPickup = ['pickup','both'].includes(mode);
+            const needsReturn = ['return','both'].includes(mode);
+            if (mode !== 'none' && (transportChoice.disabled || (needsPickup && !pickup) || (needsReturn && !dropoff))) {
+                setStatus('Sisesta vajalikud transpordiaadressid Tallinnas. Tasuta transport kehtib alates 60 € tellimusest.', 'error');
+                return;
+            }
+            const transportNotes = mode === 'none' ? '' : [
+                'Tasuta transport Tallinnas (ajad eraldi kokkuleppel)',
+                needsPickup ? 'Pealevõtt: ' + pickup : '',
+                needsReturn ? 'Tagastamine: ' + dropoff : ''
+            ].filter(Boolean).join('\n');
+            const customerNotes = document.querySelector('#booking-notes').value.trim();
+            const combinedNotes = [transportNotes, customerNotes].filter(Boolean).join('\n\n');
+            if (combinedNotes.length > 1000) {
+                setStatus('Palun lühenda lisainfot, et transpordiaadressid mahuksid broneeringusse.', 'error');
+                return;
+            }
+
             submitEl.disabled =
                 true;
 
@@ -1182,13 +1224,7 @@ if (bookingForm) {
                                     .trim(),
 
 
-                            notes:
-                                document
-                                    .querySelector(
-                                        '#booking-notes'
-                                    )
-                                    .value
-                                    .trim()
+                            notes: combinedNotes
                         }
                     });
 
@@ -1257,6 +1293,12 @@ if (bookingForm) {
                 ).value = '';
 
 
+                if (transportChoice) {
+                    transportChoice.value = 'none';
+                    transportSame.checked = true;
+                    pickupAddress.value = '';
+                    returnAddress.value = '';
+                }
                 dateEl.value = '';
 
                 selectedTime = '';
